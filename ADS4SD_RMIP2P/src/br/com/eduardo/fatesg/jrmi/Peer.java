@@ -1,5 +1,6 @@
 package br.com.eduardo.fatesg.jrmi;
 
+import br.com.fatesg.buscador.IBuscador;
 import java.rmi.AlreadyBoundException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -43,7 +44,7 @@ public class Peer {
             System.out.println();
             System.out.println("1 - Listar Peers Adicionados");
             System.out.println("2 - Adicionar Peer");
-//            System.out.println("3 - Buscar arquivo");
+            System.out.println("3 - Buscar arquivo");
             System.out.println();
             System.out.println("0 - Encerrar");
             System.out.println("");
@@ -75,6 +76,19 @@ public class Peer {
                         sc.nextLine();
 //                        ex.printStackTrace();
                     }
+                    break;
+                case 3:
+//                    try {
+//                        System.out.println("Informe o nome de arquivo a buscar: ");
+//                        String nome = sc.nextLine();
+//                        if (nome.length() > 0) {
+//                            b.buscar(nome);
+//                        }
+//                    } catch (RemoteException | NotBoundException ex) {
+//                        System.out.println("Erro ao adicionar");
+//                        sc.nextLine();
+////                        ex.printStackTrace();
+//                    }
                     break;
                 case 0:
                     try {

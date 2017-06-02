@@ -1,5 +1,6 @@
 package br.com.eduardo.fatesg.jrmi;
 
+import br.com.fatesg.buscador.IBuscador;
 import java.io.File;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -24,15 +25,30 @@ public class Buscador extends UnicastRemoteObject implements IBuscador {
         }
     }
 
-    @Override
     public void addBuscador(IBuscador b) throws RemoteException {
         buscadores.add(b);
     }
+    
+    private File buscar(String nome, File pasta) {
+        File[] arqs = pasta.listFiles();
+        for (File a : arqs) {
+            if (a.isDirectory()) {
+                File ret = buscar(nome, a);
+                if (ret != null) {
+                    return ret;
+                }
+            }
+            else if (a.isFile() && a.getName().contains(nome)) {
+                return a;
+            }
+        }
+        return null;
+    }
 
     @Override
-    public boolean buscar(String nome) throws RemoteException {
-        System.out.println("busca");
-        return false;
+    public File buscar(String nome) throws RemoteException {
+        File ret = buscar(nome, pasta);
+        return ret;
     }
 
 }

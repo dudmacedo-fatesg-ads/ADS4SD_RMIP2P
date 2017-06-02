@@ -7,8 +7,8 @@ import java.rmi.RemoteException;
  *
  * @author eduardo
  */
-public interface IBuscador extends Remote {
+public interface IIBuscador extends Remote {
     public boolean buscar(String nome) throws RemoteException;
 
-    public void addBuscador(IBuscador iBuscador) throws RemoteException;
+    public void addBuscador(IIBuscador iBuscador) throws RemoteException;
 }
